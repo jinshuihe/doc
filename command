@@ -1,23 +1,16 @@
 # -- coding: utf-8 --
-ssh name@192.168.4.69 -p 22
+
 source env/bin/activate
 ./scripts/train.sh -net squeezeDet -train_dir ./logs/squeezedet -gpu 0
 ./scripts/eval.sh -net squeezeDet -eval_dir ./logs/squeezedet -image_set (train|val) -gpu 1
 
 ./scripts/train.sh -net squeezeDet -train_dir ./logs-1248-384-895-batch20-4gpu/squeezedet -gpu 0,1,2,3
-4卡服务器
-ssh name@192.168.18.1
- ./scripts/train.sh -net squeezeDet -train_dir ./logs-1280-1080-png895-batch20/squeezedet -gpu 0,1
 
 查看视图
 tensorboard --logdir=./squeezedet/train
-http://192.168.4.69:6006/    
-tensorboard --logdir=/home/suanfa/pg/squeezeDet-master/logs_p_10000/squeezedet/train
 
 ipython notebook
 echo -e "\033[?25h"    显示光标
-Imagenet： /media/a1/2T/share/lujuntao/imaget/@传俊
-/media/a1/2T/share/name/
 
 让PIP源使用国内镜像，提升下载速度和安装成功率
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow
@@ -74,9 +67,7 @@ scp -r Install-OpenCV-master.zip name@192.168.4.69:/home/name/squeezeDet-master/
 scp -r Install-OpenCV-master.zip name@192.168.4.69:/media/a1/2T/share/name/
 将服务器中的文件拷贝至本地指定路径
 scp -r name@192.168.4.69:/home/name/faster2 /home/tony/
-
 scp -r name@192.168.4.69:/home/name/squeezeDet-master/logs-87001 /home/suanfa/pg/squeezeDet-master
-
 将本地文件拷贝至服务器指定位置（先到当前文件夹下)
 scp -r parking_data-882 name@192.168.18.1:/home/name/squeezeDet-master/data
 
@@ -184,15 +175,6 @@ touch .vimrc  创建文件
 
 pip install -U scikit-image
 -U 是 --upgrade 的简写。就是把所有包升级到最新版。
-
-
-/home/name/squeezeDet-master/logs/squeezedet
-./scripts/train.sh -net squeezeDet -train_dir /home/name/squeezeDet-master/logs/squeezedet -gpu 0
-
-
-./scripts/train.sh -net (squeezeDet|squeezeDet+|vgg16|resnet50) -train_dir /tmp/bichen/logs/squeezedet -gpu 0
-./scripts/train.sh -net squeezeDet -train_dir ./logs/squeezedet -gpu 0
-
 
 
 安装.deb文件
